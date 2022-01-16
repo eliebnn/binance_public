@@ -8,6 +8,8 @@ import os
 
 class RequestCore:
 
+    """RequestCore contains key attributes and generic functions for Bar and Tick child classes."""
+
     def __init__(self, trading_type='spot', symbols='BTCUSDT', years=None, months=None, intervals='1d',
                  start_date=None, end_date=None, folder=None, checksum=None):
 
@@ -46,7 +48,7 @@ class RequestCore:
                                                               freq='D').to_pydatetime().tolist()]
 
     @staticmethod
-    def to_dates(dates=None, st_dt=None, ed_dt=None):
+    def to_dates(dates=None):
 
         dates = dates if dates else [d.strftime("%Y-%m-%d") for d in
                                      pd.date_range(end=dt.datetime.today(), periods=MAX_DAYS).to_pydatetime().tolist()]

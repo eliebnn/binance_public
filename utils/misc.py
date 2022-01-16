@@ -9,6 +9,8 @@ import re
 
 class MiscUtils:
 
+    """Utils Class that manages data check and update"""
+
     @staticmethod
     def convert_to_date_object(d):
         year, month, day = [int(x) for x in d.split('-')]

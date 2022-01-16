@@ -10,6 +10,8 @@ from enums import *
 
 class GetterUtils:
 
+    """Utils Class that manages downloading zip from Binance"""
+
     @staticmethod
     def get_destination_dir(file_url, folder=None):
         store_directory = os.environ.get('STORE_DIRECTORY')

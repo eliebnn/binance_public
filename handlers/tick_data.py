@@ -5,6 +5,8 @@ from binance_public.utils.misc import MiscUtils
 
 class Tick(RequestCore):
 
+    """Tick related mother class"""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.data_type = 'tick'
@@ -20,6 +22,12 @@ class Tick(RequestCore):
     # ---
 
     def get_monthly_data(self, unzip=False, keep_unzip=False):
+        """
+        Downloads monthly data from Binance
+        :param unzip: bool, extracts csv from the zip file
+        :param keep_unzip: bool, keeps only the csv file, and deletes the zip file
+        :return:
+        """
         current = 0
 
         print("Found {} symbols".format(self.symbols_qty))
@@ -43,6 +51,12 @@ class Tick(RequestCore):
             current += 1
 
     def get_daily_data(self, unzip=False, keep_unzip=False):
+        """
+        Downloads daily data from Binance
+        :param unzip: bool, extracts csv from the zip file
+        :param keep_unzip: bool, keeps only the csv file, and deletes the zip file
+        :return:
+        """
         current = 0
 
         print("Found {} symbols".format(self.symbols_qty))
@@ -66,12 +80,16 @@ class Tick(RequestCore):
 
 class AggTrades(Tick):
 
+    """Aggregated Trades related child class"""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.data_type = 'aggTrades'
 
 
 class Trades(Tick):
+
+    """Trades related child class"""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
