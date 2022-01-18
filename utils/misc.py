@@ -48,7 +48,9 @@ class MiscUtils:
     @staticmethod
     def get_path(trading_type, market_data_type, time_period, symbol, interval=None):
         trading_type_path = 'data/spot'
-        if trading_type != 'spot':
+        if trading_type == 'futures':
+            trading_type_path = f'data/futures/um'
+        elif trading_type != 'spot':
             trading_type_path = f'data/futures/{trading_type}'
         if interval is not None:
             path = f'{trading_type_path}/{time_period}/{market_data_type}/{symbol.upper()}/{interval}/'
